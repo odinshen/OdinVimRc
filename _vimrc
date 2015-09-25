@@ -131,7 +131,7 @@ set       splitright
 "set       guifont       =Monospace\ 10,文鼎PL新宋\ 10
 "set       guifont       =Monospace\ 8,文鼎PL新宋\ 8
 "set       guifont       =Monospace\ 6,文鼎PL新宋\ 6
-set guifont=Consolas:h13:cANSI
+set guifont=Consolas:h10:cANSI
 
 filetype on
 filetype plugin on
@@ -734,3 +734,4 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 cd c:\Git\
+e c:\Tools\vim\vim_note.txt
