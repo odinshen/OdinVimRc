@@ -297,8 +297,11 @@ L "移到螢幕尾
 
 
 
-
-
+##
+## Plugin -- Vundle-for-Windows
+## 
+Vundle-for-Windows:
+https://github.com/VundleVim/Vundle.vim/wiki/Vundle-for-Windows
 
 
 |z<CR>|         z<CR>              重畫，游標移動到窗口的頂行的第一個非空白字

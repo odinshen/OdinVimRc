@@ -3,16 +3,18 @@
 " OdinWin.rc"
 "   Function: include all Windows-based VIM function"
 
-let g:EXT_TOOLS            = g:OdinVimDir . 'tools\'
-let g:ODIN_VIMRCPATH       = g:OdinVimDir . 'OdinVimRc\'
-
-let g:CYG_ROOT             ='C:\cygwin\root\'
-let g:SOURCECODE           ='D:\SourceCode\'
+" PC hardware identify
+let g:CYG_ROOT             ='C:\cygwin64\'
+let g:SOURCECODE           ='C:\Git\'
 let g:RAMDISK              ='E:\'
 let g:SERVER_SAMBA         ='O:\'
 let g:RAMDISK_TEMP         =g:RAMDISK . 'TEMP\'
-
 let g:GIT_DIR              ='C:\Git\'
+
+
+
+let g:EXT_TOOLS            = g:OdinVimDir . 'tools\'
+let g:ODIN_VIMRCPATH       = g:OdinVimDir . 'OdinVimRc\'
 
 " +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ "
 " CHECK ENVIRONMENT                                               "
@@ -38,7 +40,7 @@ endif
 " BACKUP                                                          "
 " +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ "
 set backup
-set       backupdir           =D:\Tools\Vim\temp\
+set       backupdir           =C:\Tools\Vim\temp\
 " --------------------------------------------------------------- "
 " BACKUP                                                          "
 " --------------------------------------------------------------- "
@@ -48,7 +50,9 @@ set       backupdir           =D:\Tools\Vim\temp\
 " TOOLS                                                           "
 " +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ "
 "set csprg           =D:\Tools\Vim\tools\cscope\cscope.exe
-set csprg           =C:\Toosl\Vim\tools\cscope\cscope.exe
+"set csprg           =C:\Tools\Vim\tools\cscope\cscope.exe
+"set csprg           =g:EXT_TOOLS\ . 'cscope\cscope.exe'
+
 "let Tlist_Ctags_Cmd =g:EXT_TOOLS . 'ctags58\ctags.exe'
 
 fu! SaveCurPos() 
@@ -83,30 +87,30 @@ map <F4>h <ESC>:%!xxd -r<CR>
 " +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " DIFF 
 " +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+" set diffexpr=MyDiffOdin222()
+" function MyDiffOdin222()
+"   let opt = '-a --binary '
+"   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+"   if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+"   let arg1 = v:fname_in
+"   if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+"   let arg2 = v:fname_new
+"   if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+"   let arg3 = v:fname_out
+"   if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+"   let eq = ''
+"   if $VIMRUNTIME =~ ' '
+"     if &sh =~ '\<cmd'
+"       let cmd = '""' . $VIMRUNTIME . '\diff"'
+"       let eq = '"'
+"     else
+"       let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+"     endif
+"   else
+"     let cmd = $VIMRUNTIME . '\diff'
+"   endif
+"   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+" endfunction
 
 " ---------------------------------------------------------------
 " DIFF 
