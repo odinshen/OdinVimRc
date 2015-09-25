@@ -1,0 +1,122 @@
+" 基本设置
+set hlsearch "highlight all matches for the last used search pattern
+let mapleader=","
+set is  "show match for partly typed search command
+set whichwrap=b,h,l,<,>,[,]  "list of menu_flags specifying which commands wrap to another line
+set number
+
+" 按键映射..
+"
+" 替代ESC
+inoremap jj <c-[>
+
+"visual mode hit tab forward indent ,hit shift-tab backward indent
+vmap <TAB>  >gv  
+vmap <s-TAB>  <gv 
+
+" 快速切换tab标签
+noremap <m-1> <esc>1gt
+noremap <m-2> <esc>2gt
+noremap <m-3> <esc>3gt
+noremap <m-4> <esc>4gt
+noremap <m-5> <esc>5gt
+noremap <m-6> <esc>6gt
+noremap <m-7> <esc>7gt
+noremap <m-8> <esc>8gt
+noremap <m-9> <esc>9gt
+
+"取消高亮
+noremap <m-q> :nohls<CR>
+
+" 复制相关
+map <S-Insert> "+gP
+imap <c-v>	<C-o>"+gp
+cmap <C-V>	<C-R>+
+cmap <S-Insert>	<C-R>+
+vnoremap <C-X> "+x
+
+" 窗口之间移动
+imap <m-h> <Left>
+imap <m-l> <Right>
+imap <m-j> <Down>
+imap <m-k> <Up>
+nmap <m-h> <C-w>h
+nmap <m-l> <C-w>l
+nmap <m-j> <C-w>j
+nmap <m-k> <C-w>k
+
+"展开或者折叠
+nnoremap <Space> za
+
+" 向前导航，像后导航
+nmap <C-O> :vsc View.NavigateBackward<CR>
+nmap <C-I> :vsc View.NavigateForward<CR>
+
+"跳转定义
+nnoremap <leader>g "zyiw:vsc Edit.GoToDefinition <C-R>z<CR>"
+
+"弹出查找框
+nnoremap <leader>f :vsc Edit.Find<CR>
+
+"注释和去注释
+nnoremap <Leader>cc :vsc Edit.CommentSelection<CR>
+nnoremap <leader>cu :vsc edit.uncommentselection<cr>
+vnoremap <Leader>cc :s?^\s*?&//?<CR>gv:s?////??<CR>
+"先复制然后注释
+nnoremap <Leader>cy mzyyp`z:vsc Edit.CommentSelection<CR>hhj
+
+nnoremap <Leader>sc :source ~/_vsvimrc<CR>
+nnoremap <c-TAB> :vsc window.NextDocumentWindowNav<cr>
+
+nnoremap J :vsc Window.PreviousTab<CR>
+nnoremap K :vsc Window.NextTab<CR>
+
+
+" 全部展开或者折叠所有Fold
+noremap zc :vsc Edit.CollapseAllOutlining <return>
+noremap zo :vsc Edit.ExpandAllOutlining <return>
+
+" 选中模式下自动Surround...
+vnoremap ' <ESC>`><Left>a'<ESC>`<i'<ESC>
+vnoremap ( <ESC>`><Left>a )<ESC>`<i( <ESC><Left>
+vnoremap ) <ESC>`><Left>a)<ESC>`<i(<ESC>
+vnoremap [ <ESC>`><Left>a ]<ESC>`<i[ <ESC><Left>
+vnoremap ] <ESC>`><Left>a]<ESC>`<i[<ESC>
+vnoremap { <ESC>`><Left>a }<ESC>`<i{ <ESC><Left>
+vnoremap } <ESC>`><Left>a}<ESC>`<i{<ESC>
+vnoremap * <ESC>`><Left>a*/<ESC>`<i/*<ESC>
+
+
+" Debugging / Building
+nnoremap <Leader>mx :vsc Debug.StartWithoutDebugging<CR>
+nnoremap <Leader>md :vsc Debug.Start<CR>
+nnoremap <Leader>ms :vsc Build.BuildSelection<CR>
+nnoremap <Leader>mb :vsc Build.BuildSolution<CR>
+nnoremap <Leader>mcl :vsc Build.CleanSelection<CR>
+nnoremap <Leader>mca :vsc Build.Cancel<CR>
+nnoremap <Leader>mf :vsc Build.Compile<CR>
+nnoremap <Leader>dstop :vsc Debug.StopDebugging<CR>
+nnoremap <Leader>dres :vsc Debug.Restart<CR>
+nnoremap <Leader>db :vsc Debug.BreakAll<CR>
+
+" Project
+nnoremap <Leader>pac :vsc Project.AddClass<CR><CR>
+
+" 万能查找..
+nnoremap <C-P> :vsc Edit.NavigateTo<CR>
+
+"显示函数，变量简要信息
+nnoremap <S-Space> :vsc Edit.QuickInfo<CR>
+
+"打开头文件
+nnoremap <Leader>h :vsc EditorContextMenus.CodeWindow.GoToHeaderFile<CR>
+
+"查看错误列表
+nnoremap ge :vsc View.ErrorList<CR>
+
+" 全屏
+nnoremap <F11> :vsc FullScreen<cr>
+
+"关闭当前窗口
+nnoremap <C-W>q :q<cr>
+
