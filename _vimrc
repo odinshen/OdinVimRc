@@ -46,6 +46,7 @@ source $VIMRUNTIME/mswin.vim
 source $VIMRUNTIME/../OdinVimRC/OdinWin.vim
 let g:OdinVimDir    = $VIMRUNTIME . '/../'
 set undodir=C:\Windows\Temp
+"set undodir=E:\Temp\Vim
 
 "source $VIMRUNTIME/../OdinVimRC/OdinPrj.vim
 exe 'source ' . g:OdinVimDir . 'OdinVimRC/OdinPrj.vim'

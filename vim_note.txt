@@ -55,12 +55,16 @@ FINDER      ##  LIST
 <F8>+l          lvimgrep Buffers"
 
 <F9>            Search"
-<F9>+a          All Souec"
-<F9>+c          Related CPP/H"
-<F9>+h          config.h"
-<F9>+l          .lst"
-<F9>+r          .hex"
-<F9>+f          IFP folder"
+<F9>+g          @ current folder "
+<F9>+G          @ current folder & sub-folder"
+# one-based related searching
+# <F9>+a          All Souec"
+# <F9>+c          Related CPP/H"
+# <F9>+h          config.h"
+# <F9>+l          .lst"
+# <F9>+r          .hex"
+# <F9>+f          IFP folder"
+
 
 <F11>           Split"
 <F11>+s         Same File"
